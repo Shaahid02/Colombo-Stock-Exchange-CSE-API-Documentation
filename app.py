@@ -166,13 +166,19 @@ class CSE_API:
                 print(f"  Failed to fetch companies for '{letter}': {response['error']}")
         
         print(f"\nCompleted! Total companies found: {len(all_companies)}")
+        
+        active_companies = [ c for c in all_companies if c.get('price', 0) > 0 ]
+        
+        print(f"Active companies (price > 0): {len(active_companies)}")
+        
         if failed_requests:
             print(f"Failed requests for letters: {[req['letter'] for req in failed_requests]}")
         
         return {
             'success': True,
             'total_companies': len(all_companies),
-            'data': all_companies,
+            'active_companies': len(active_companies),
+            'data': [all_companies, active_companies],
             'failed_requests': failed_requests,
             'status_code': 200
         }
@@ -291,6 +297,29 @@ class CSE_API:
             Dict containing financial announcements
         """
         return self._make_request("getFinancialAnnouncement")
+    
+    def get_financial_announcements_filtered(self, from_date: str, to_date: str, company_ids: Optional[str] = None) -> Dict[str, Any]:
+        """
+        Get financial announcements filtered by date range, optionally filtered by company security ID
+        
+        Args:
+            from_date (str): Start date in YYYY-MM-DD format (e.g., '2025-01-01')
+            to_date (str): End date in YYYY-MM-DD format (e.g., '2025-08-26')
+            company_ids (str, optional): Company security ID (e.g., '642'). If None, fetches for all companies
+        
+        Returns:
+            Dict containing filtered financial announcements
+        """
+        form_data = {
+            'fromDate': from_date,
+            'toDate': to_date
+        }
+        
+        # Only add company_ids to form data if it's provided
+        if company_ids is not None:
+            form_data['companyIds'] = company_ids
+        
+        return self._make_request("getFinancialAnnouncement", data=form_data)
     
     def get_circular_announcements(self) -> Dict[str, Any]:
         """

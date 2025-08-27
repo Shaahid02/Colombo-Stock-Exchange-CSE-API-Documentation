@@ -3,3 +3,7 @@ __pycache__/*
 .vscode/*
 
 training_data/*
+
+reports/*
+
+tests/__pycache__/*

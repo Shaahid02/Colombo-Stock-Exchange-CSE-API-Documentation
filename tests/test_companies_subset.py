@@ -2,8 +2,13 @@
 Test the get_all_companies function with just first 5 letters
 """
 import os
-from app import CSE_API
+import sys
 import json
+
+# Add parent directory to path to import modules
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from app import CSE_API
 
 def test_get_companies_subset():
     """Test getting companies for first 5 letters (A-E)"""

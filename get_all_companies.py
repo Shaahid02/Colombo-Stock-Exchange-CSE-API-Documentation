@@ -4,6 +4,7 @@ This script fetches all registered companies by iterating through alphabets A-Z
 """
 
 from app import CSE_API
+import os
 import json
 import csv
 from datetime import datetime
@@ -11,15 +12,16 @@ from datetime import datetime
 def save_companies_to_files(companies_data):
     """Save companies data to JSON and CSV files"""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    os.makedirs("training_data", exist_ok=True)
     
     # Save to JSON
-    json_filename = f"cse_all_companies_{timestamp}.json"
+    json_filename = f"training_data/cse_all_companies_{timestamp}.json"
     with open(json_filename, 'w', encoding='utf-8') as f:
         json.dump(companies_data, f, indent=2, ensure_ascii=False)
     print(f"💾 Saved to JSON: {json_filename}")
     
     # Save to CSV
-    csv_filename = f"cse_all_companies_{timestamp}.csv"
+    csv_filename = f"training_data/cse_all_companies_{timestamp}.csv"
     if companies_data:
         # Get all possible keys from all companies
         all_keys = set()
@@ -85,7 +87,7 @@ def analyze_companies_data(companies_data):
             symbol = company.get('symbol', 'N/A')
             price = company.get('price', 0)
             change_pct = company.get('percentageChange', 0)
-            print(f"   {i+1:2d}. {name} ({symbol}) - ${price} ({change_pct:+.2f}%)")
+            print(f"   {i+1:2d}. {name} ({symbol}) - Rs.{price} ({change_pct:+.2f}%)")
 
 def main():
     """Main function to get all companies and save them"""
@@ -109,15 +111,16 @@ def main():
     if not result['success']:
         print(f"❌ Failed to get companies: {result.get('error', 'Unknown error')}")
         return
-    
-    companies_data = result['data']
+
+    companies_data = result['data'][0]  # All companies
+    active_companies_data = result['data'][1]  # Active companies
     print(f"\n✅ Successfully retrieved {len(companies_data)} companies!")
     
     if result['failed_requests']:
         print(f"⚠️  Note: Some requests failed for letters: {[req['letter'] for req in result['failed_requests']]}")
     
     # Analyze the data
-    analyze_companies_data(companies_data)
+    analyze_companies_data(active_companies_data)
     
     # Ask if user wants to save to files
     save_files = input(f"\n💾 Save {len(companies_data)} companies to JSON/CSV files? (Y/n): ").strip().lower()
