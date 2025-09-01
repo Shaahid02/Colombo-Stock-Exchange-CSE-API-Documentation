@@ -11,7 +11,7 @@ from datetime import datetime, timedelta
 from typing import Dict, List, Any, Optional
 
 # Add parent directory to path
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app import CSE_API
 
@@ -29,7 +29,9 @@ class DividendTracker:
     def _load_announcement_categories(self) -> Dict:
         """Load announcement categories from JSON file"""
         try:
-            with open("company_data/announcement_categories.json", 'r', encoding='utf-8') as f:
+            parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            categories_path = os.path.join(parent_dir, "company_data/announcement_categories.json")
+            with open(categories_path, 'r', encoding='utf-8') as f:
                 return json.load(f)
         except FileNotFoundError:
             print("⚠️  Run fetch_categories.py first to download announcement categories")
@@ -291,7 +293,8 @@ class DividendTracker:
             return
         
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        reports_dir = "reports"
+        parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        reports_dir = os.path.join(parent_dir, "reports")
         os.makedirs(reports_dir, exist_ok=True)
         
         # Generate trend analysis

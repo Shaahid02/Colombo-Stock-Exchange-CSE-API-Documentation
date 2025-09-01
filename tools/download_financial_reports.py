@@ -4,8 +4,13 @@ Downloads PDF reports from CSE financial announcements API
 """
 
 import os
+import sys
 import requests
 from urllib.parse import urljoin
+
+# Add parent directory to path to import modules
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from app import CSE_API
 import time
 from datetime import datetime
@@ -76,7 +81,8 @@ class CSE_ReportDownloader:
     def create_download_folder(self, folder_name="cse_financial_reports"):
         """Create a folder for downloaded reports in the reports directory"""
         # Ensure reports directory exists
-        reports_dir = "reports"
+        parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        reports_dir = os.path.join(parent_dir, "reports")
         if not os.path.exists(reports_dir):
             os.makedirs(reports_dir)
             print(f"📁 Created reports directory: {reports_dir}")

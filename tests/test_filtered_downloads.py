@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 # Add parent directory to path to import modules
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from download_financial_reports import CSE_ReportDownloader
+from tools.download_financial_reports import CSE_ReportDownloader
 
 def test_security_id_download():
     """Test downloading by security ID and date range"""

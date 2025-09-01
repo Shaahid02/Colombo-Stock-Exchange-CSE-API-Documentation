@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 from typing import Dict, List, Any, Optional
 
 # Add parent directory to path
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app import CSE_API
 
@@ -21,8 +21,11 @@ class EnhancedInvestmentAnalyzer:
     Enhanced investment analyzer with dividend tracking and corporate announcements
     """
     
-    def __init__(self, data_file: str = "company_data/data.json"):
+    def __init__(self, data_file: str = None):
         self.api = CSE_API()
+        if data_file is None:
+            parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            data_file = os.path.join(parent_dir, "company_data/data.json")
         self.company_data = self._load_company_data(data_file)
         self.announcement_categories = self._load_announcement_categories()
         self.analysis_results = []
@@ -43,7 +46,8 @@ class EnhancedInvestmentAnalyzer:
     def _load_announcement_categories(self) -> Dict:
         """Load announcement categories from JSON file"""
         try:
-            categories_file = "company_data/announcement_categories.json"
+            parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            categories_file = os.path.join(parent_dir, "company_data/announcement_categories.json")
             with open(categories_file, 'r', encoding='utf-8') as f:
                 return json.load(f)
         except FileNotFoundError:

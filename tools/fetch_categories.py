@@ -7,7 +7,7 @@ import os
 from datetime import datetime
 
 # Add parent directory to path
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app import CSE_API
 
@@ -33,7 +33,8 @@ def fetch_and_store_categories():
         }
         
         # Create company_data directory if it doesn't exist
-        data_dir = "company_data"
+        parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        data_dir = os.path.join(parent_dir, "company_data")
         os.makedirs(data_dir, exist_ok=True)
         
         # Save to JSON file

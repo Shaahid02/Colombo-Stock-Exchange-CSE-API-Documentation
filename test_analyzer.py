@@ -7,7 +7,7 @@ import os
 # Add parent directory to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from company_analyzer import CSE_InvestmentAnalyzer
+from tools.company_analyzer import CSE_InvestmentAnalyzer
 
 def quick_test():
     """Test the analyzer with a few companies"""

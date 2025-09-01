@@ -7,7 +7,7 @@ import sys
 # Add parent directory to path to import modules
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from download_financial_reports import CSE_ReportDownloader
+from tools.download_financial_reports import CSE_ReportDownloader
 
 def test_company_search():
     """Test searching by company name"""

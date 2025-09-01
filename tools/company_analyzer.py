@@ -28,7 +28,9 @@ class CSE_InvestmentAnalyzer:
     def load_company_data(self):
         """Load company data from data.json"""
         try:
-            with open('company_data/data.json', 'r', encoding='utf-8') as f:
+            parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            data_path = os.path.join(parent_dir, 'company_data/data.json')
+            with open(data_path, 'r', encoding='utf-8') as f:
                 return json.load(f)
         except FileNotFoundError:
             print("❌ Error: company_data/data.json not found")
@@ -497,33 +499,37 @@ class CSE_InvestmentAnalyzer:
             filename = f'investment_analysis_{timestamp}'
 
         # Ensure analysis directory exists
-        os.makedirs('analysis', exist_ok=True)
+        parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        analysis_dir = os.path.join(parent_dir, 'analysis')
+        reports_dir = os.path.join(parent_dir, 'reports')
+        os.makedirs(analysis_dir, exist_ok=True)
+        os.makedirs(reports_dir, exist_ok=True)
         
         # Save raw data
-        with open(f'analysis/{filename}_raw_data.json', 'w', encoding='utf-8') as f:
+        with open(os.path.join(analysis_dir, f'{filename}_raw_data.json'), 'w', encoding='utf-8') as f:
             json.dump(self.analysis_results, f, indent=2, ensure_ascii=False, default=str)
         
         # Save investment analysis
         analysis = self.generate_investment_analysis()
-        with open(f'analysis/{filename}_investment_analysis.json', 'w', encoding='utf-8') as f:
+        with open(os.path.join(analysis_dir, f'{filename}_investment_analysis.json'), 'w', encoding='utf-8') as f:
             json.dump(analysis, f, indent=2, ensure_ascii=False, default=str)
         
         # Save recommendations for different investment styles
         for style in ['conservative', 'aggressive', 'value', 'balanced']:
             recommendations = self.get_investment_recommendations(style)
             if recommendations:
-                with open(f'reports/{filename}_{style}_recommendations.json', 'w', encoding='utf-8') as f:
+                with open(os.path.join(reports_dir, f'{filename}_{style}_recommendations.json'), 'w', encoding='utf-8') as f:
                     json.dump(recommendations, f, indent=2, ensure_ascii=False, default=str)
         
         # Save failed requests
         if self.failed_requests:
-            with open(f'analysis/{filename}_failed_requests.json', 'w', encoding='utf-8') as f:
+            with open(os.path.join(analysis_dir, f'{filename}_failed_requests.json'), 'w', encoding='utf-8') as f:
                 json.dump(self.failed_requests, f, indent=2, ensure_ascii=False)
         
         print(f"\n💾 Analysis saved:")
         print(f"  📊 Raw data: analysis/{filename}_raw_data.json")
         print(f"  📈 Investment analysis: analysis/{filename}_investment_analysis.json")
-        print(f"  🎯 Recommendations: analysis/{filename}_[style]_recommendations.json")
+        print(f"  🎯 Recommendations: reports/{filename}_[style]_recommendations.json")
         if self.failed_requests:
             print(f"  ❌ Failed requests: analysis/{filename}_failed_requests.json")
 

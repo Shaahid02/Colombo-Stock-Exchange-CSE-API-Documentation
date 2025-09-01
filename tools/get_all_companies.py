@@ -3,25 +3,32 @@ Get All Registered Companies from CSE API
 This script fetches all registered companies by iterating through alphabets A-Z
 """
 
-from app import CSE_API
 import os
+import sys
 import json
 import csv
 from datetime import datetime
 
+# Add parent directory to path to import modules
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from app import CSE_API
+
 def save_companies_to_files(companies_data):
     """Save companies data to JSON and CSV files"""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    os.makedirs("training_data", exist_ok=True)
+    parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    training_data_dir = os.path.join(parent_dir, "training_data")
+    os.makedirs(training_data_dir, exist_ok=True)
     
     # Save to JSON
-    json_filename = f"training_data/cse_all_companies_{timestamp}.json"
+    json_filename = os.path.join(training_data_dir, f"cse_all_companies_{timestamp}.json")
     with open(json_filename, 'w', encoding='utf-8') as f:
         json.dump(companies_data, f, indent=2, ensure_ascii=False)
     print(f"💾 Saved to JSON: {json_filename}")
     
     # Save to CSV
-    csv_filename = f"training_data/cse_all_companies_{timestamp}.csv"
+    csv_filename = os.path.join(training_data_dir, f"cse_all_companies_{timestamp}.csv")
     if companies_data:
         # Get all possible keys from all companies
         all_keys = set()
