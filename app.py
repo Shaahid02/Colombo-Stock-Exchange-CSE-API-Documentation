@@ -15,15 +15,23 @@ class CSE_API:
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
         }
     
-    def _make_request(self, endpoint: str, data: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-        """Make a POST request to the CSE API"""
+    def _make_request(self, endpoint: str, data: Optional[Dict[str, Any]] = None, method: str = "POST") -> Dict[str, Any]:
+        """Make a request to the CSE API"""
         try:
-            response = requests.post(
-                self.base_url + endpoint,
-                data=data or {},
-                headers=self.headers,
-                timeout=30
-            )
+            if method.upper() == "GET":
+                response = requests.get(
+                    self.base_url + endpoint,
+                    params=data or {},
+                    headers=self.headers,
+                    timeout=30
+                )
+            else:
+                response = requests.post(
+                    self.base_url + endpoint,
+                    data=data or {},
+                    headers=self.headers,
+                    timeout=30
+                )
             response.raise_for_status()
             return {
                 'success': True,
@@ -347,6 +355,76 @@ class CSE_API:
             Dict containing non-compliance announcements
         """
         return self._make_request("getNonComplianceAnnouncements")
+    
+    def get_corporate_announcement_categories(self) -> Dict[str, Any]:
+        """
+        Get all corporate announcement categories
+        
+        Returns:
+            Dict containing array of announcement categories with their details:
+            - id: Category ID
+            - categoryName: Name of the category
+            - pageName: Associated page name
+            - pageView: Page view identifier
+            - methodName: Associated method name
+            - className: Java class name
+            - genAnnou: General announcement flag
+            - smd: SMD flag
+            - parentCategoryId: Parent category ID (if any)
+        """
+        return self._make_request("corporateAnnouncementCategory", method="GET")
+    
+    def get_approved_announcements(self, announcement_type: str, from_date: str, 
+                                 to_date: str, announcement_categories: str) -> Dict[str, Any]:
+        """
+        Get approved announcements filtered by type, date range, and categories
+        
+        Args:
+            announcement_type: Type of announcement (e.g., "CASH DIVIDEND")
+            from_date: Start date in YYYY-MM-DD format
+            to_date: End date in YYYY-MM-DD format
+            announcement_categories: Announcement category filter
+            
+        Returns:
+            Dict containing approved announcements array with details:
+            - id: Announcement ID
+            - createdDate: Creation timestamp
+            - dateOfAnnouncement: Announcement date
+            - announcementId: Unique announcement identifier
+            - announcementCategory: Category of announcement
+            - company: Company name
+            - Various date fields (recordDate, paymentDate, agmDate, etc.)
+        """
+        data = {
+            'type': announcement_type,
+            'fromDate': from_date,
+            'toDate': to_date,
+            'announcementCategories': announcement_categories
+        }
+        return self._make_request("approvedAnnouncement", data)
+    
+    def get_announcement_by_id(self, announcement_id: int) -> Dict[str, Any]:
+        """
+        Get detailed announcement information by announcement ID
+        
+        Args:
+            announcement_id: The unique announcement ID
+            
+        Returns:
+            Dict containing detailed announcement information:
+            - reqBaseAnnouncement: Detailed announcement data including:
+              - Basic info (id, dateOfAnnouncement, symbol, companyName)
+              - Dividend details (divPerShare, votingDivPerShare, etc.)
+              - Important dates (agm, xd, payment, recordDate)
+              - Approval status and remarks
+            - reqAnnouncementDocs: Array of associated documents with:
+              - fileName: Document filename
+              - fileUrl: Relative URL to document
+              - fileSize: File size in bytes
+              - baseUrl: Base URL for document access
+        """
+        data = {'announcementId': announcement_id}
+        return self._make_request("getAnnouncementById", data)
 
 
 def demo_api_calls():

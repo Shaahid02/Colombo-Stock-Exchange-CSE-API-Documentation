@@ -11,3 +11,5 @@ tests/__pycache__/*
 analysis/*
 
 company_training_data/*
+
+api_data/*
