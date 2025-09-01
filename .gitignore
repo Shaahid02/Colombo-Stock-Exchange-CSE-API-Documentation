@@ -13,3 +13,5 @@ analysis/*
 company_training_data/*
 
 api_data/*
+
+tools/__pycache__/*

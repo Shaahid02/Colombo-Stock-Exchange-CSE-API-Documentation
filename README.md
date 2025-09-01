@@ -19,19 +19,23 @@ This repository contains a comprehensive Python client for the Colombo Stock Exc
 ## 📁 Files Overview
 
 ### Core API Client
+
 - **`app.py`** - Main CSE API client class with all endpoint methods
 - **`cse_api_examples.py`** - Comprehensive examples and demonstrations
 - **`quick_test.py`** - Quick test script to verify API functionality
 
 ### Documentation
+
 - **`index.html`** - Web-based API documentation
 - **`api_endpoint_urls.txt`** - List of all available API endpoints
 - **`TOOLS_MIGRATION.md`** - Documentation for tools package migration
 
 ### Tools Package
+
 - **`tools/`** - Advanced analysis and utility tools (see [Tools Section](#-tools-package))
 
 ### Data & Reports
+
 - **`company_data/`** - Company information and announcement categories
 - **`reports/`** - Downloaded financial reports and analysis results
 - **`analysis/`** - Investment analysis outputs
@@ -89,20 +93,20 @@ print(company['data'])
 
 ### Announcement APIs
 
-| Method                                         | Endpoint                                  | Parameters                                      | Description                            |
-| ---------------------------------------------- | ----------------------------------------- | ----------------------------------------------- | -------------------------------------- |
-| `get_new_listings_announcements()`             | getNewListingsRelatedNoticesAnnouncements | None                                           | New listings and related announcements |
-| `get_buy_in_board_announcements()`             | getBuyInBoardAnnouncements                | None                                           | Buy-in board announcements             |
-| `get_approved_announcements()`                 | approvedAnnouncement                      | None                                           | Approved announcements                 |
-| `get_covid_announcements()`                    | getCOVIDAnnouncements                     | None                                           | COVID-related announcements            |
-| `get_financial_announcements()`                | getFinancialAnnouncement                  | None                                           | Financial announcements                |
-| `get_financial_announcements_filtered()`       | getFinancialAnnouncement                  | from_date, to_date, company_ids (optional)     | Filtered financial announcements       |
-| `get_circular_announcements()`                 | circularAnnouncement                      | None                                           | Circular announcements                 |
-| `get_directive_announcements()`                | directiveAnnouncement                     | None                                           | Directive announcements                |
-| `get_non_compliance_announcements()`           | getNonComplianceAnnouncements             | None                                           | Non-compliance announcements           |
-| `get_corporate_announcement_categories()`      | getCorporateAnnouncementCategories        | None                                           | Available announcement categories      |
-| `get_approved_announcements()` (filtered)      | getApprovedAnnouncements                  | announcement_type, from_date, to_date, company_ids | Advanced filtered announcements |
-| `get_announcement_by_id()`                     | getAnnouncementById                       | announcement_id (required)                     | Get specific announcement by ID        |
+| Method                                    | Endpoint                                  | Parameters                                         | Description                            |
+| ----------------------------------------- | ----------------------------------------- | -------------------------------------------------- | -------------------------------------- |
+| `get_new_listings_announcements()`        | getNewListingsRelatedNoticesAnnouncements | None                                               | New listings and related announcements |
+| `get_buy_in_board_announcements()`        | getBuyInBoardAnnouncements                | None                                               | Buy-in board announcements             |
+| `get_approved_announcements()`            | approvedAnnouncement                      | None                                               | Approved announcements                 |
+| `get_covid_announcements()`               | getCOVIDAnnouncements                     | None                                               | COVID-related announcements            |
+| `get_financial_announcements()`           | getFinancialAnnouncement                  | None                                               | Financial announcements                |
+| `get_financial_announcements_filtered()`  | getFinancialAnnouncement                  | from_date, to_date, company_ids (optional)         | Filtered financial announcements       |
+| `get_circular_announcements()`            | circularAnnouncement                      | None                                               | Circular announcements                 |
+| `get_directive_announcements()`           | directiveAnnouncement                     | None                                               | Directive announcements                |
+| `get_non_compliance_announcements()`      | getNonComplianceAnnouncements             | None                                               | Non-compliance announcements           |
+| `get_corporate_announcement_categories()` | getCorporateAnnouncementCategories        | None                                               | Available announcement categories      |
+| `get_approved_announcements()` (filtered) | getApprovedAnnouncements                  | announcement_type, from_date, to_date, company_ids | Advanced filtered announcements        |
+| `get_announcement_by_id()`                | getAnnouncementById                       | announcement_id (required)                         | Get specific announcement by ID        |
 
 ## 🛠️ Tools Package
 
@@ -113,6 +117,7 @@ The `tools/` package contains powerful analysis and utility tools built on top o
 #### 📊 Investment Analysis Tools
 
 **`CSE_InvestmentAnalyzer`** (`tools/company_analyzer.py`)
+
 - Comprehensive investment analysis and recommendations
 - Multi-style investment strategies (conservative, aggressive, value, balanced)
 - Risk assessment and financial metrics calculation
@@ -127,6 +132,7 @@ analyzer.save_analysis()  # Save results to analysis/ folder
 ```
 
 **`EnhancedInvestmentAnalyzer`** (`tools/enhanced_analyzer.py`)
+
 - Advanced analysis combining dividends and corporate announcements
 - Enhanced risk metrics and trend analysis
 - Comprehensive reporting with multiple data sources
@@ -141,6 +147,7 @@ enhanced.analyze_company_comprehensive("LOLC.N0000")
 #### 💰 Dividend Analysis Tools
 
 **`DividendTracker`** (`tools/dividend_tracker.py`)
+
 - Track dividend announcements and payments
 - Dividend yield calculations and trend analysis
 - Generate comprehensive dividend reports
@@ -157,6 +164,7 @@ tracker.generate_dividend_report()
 #### 📄 Report Download Tools
 
 **`CSE_ReportDownloader`** (`tools/download_financial_reports.py`)
+
 - Download financial reports from CSE announcements
 - Filter by company, date range, and report type
 - Organize downloads with proper file naming
@@ -168,8 +176,8 @@ from tools.download_financial_reports import CSE_ReportDownloader
 downloader = CSE_ReportDownloader()
 # Download reports for specific company and date range
 downloader.download_reports_by_company_name(
-    "ABANS ELECTRICALS", 
-    "2024-01-01", 
+    "ABANS ELECTRICALS",
+    "2024-01-01",
     "2025-08-26"
 )
 ```
@@ -177,6 +185,7 @@ downloader.download_reports_by_company_name(
 #### 🔍 Data Collection Tools
 
 **`fetch_and_store_categories()`** (`tools/fetch_categories.py`)
+
 - Fetch and store announcement categories
 - Categorize announcements by type (dividend, financial, meetings)
 - Save structured data for further analysis
@@ -188,6 +197,7 @@ fetch_and_store_categories()  # Downloads and saves categories
 ```
 
 **Company Data Tools** (`tools/get_all_companies.py`)
+
 - Fetch all registered companies from CSE
 - Save data in multiple formats (JSON, CSV)
 - Comprehensive company information extraction
@@ -199,6 +209,7 @@ get_all_companies()  # Fetches all companies A-Z
 ```
 
 **Filter and Processing** (`tools/filter_scraper.py`)
+
 - Process and filter company training data
 - Generate CSV files for individual companies
 - Data preparation for analysis
@@ -212,8 +223,8 @@ from tools.download_financial_reports import CSE_ReportDownloader
 
 # Or import multiple tools at once
 from tools import (
-    CSE_InvestmentAnalyzer, 
-    DividendTracker, 
+    CSE_InvestmentAnalyzer,
+    DividendTracker,
     CSE_ReportDownloader,
     EnhancedInvestmentAnalyzer
 )
@@ -313,14 +324,14 @@ analyze_stock("LOLC.N0000")
 ```python
 def get_filtered_announcements():
     cse = CSE_API()
-    
+
     # Get financial announcements for a specific date range
     result = cse.get_financial_announcements_filtered(
         from_date="2024-01-01",
         to_date="2025-08-26",
         company_ids="642"  # Abans Electricals
     )
-    
+
     if result['success']:
         announcements = result['data']
         print(f"Found {len(announcements)} financial announcements")
@@ -330,7 +341,7 @@ def get_filtered_announcements():
 # Get announcement categories
 def get_announcement_categories():
     cse = CSE_API()
-    
+
     categories = cse.get_corporate_announcement_categories()
     if categories['success']:
         for category in categories['data']['categories']:
@@ -339,7 +350,7 @@ def get_announcement_categories():
 # Get specific announcement details
 def get_announcement_details(announcement_id):
     cse = CSE_API()
-    
+
     announcement = cse.get_announcement_by_id(announcement_id)
     if announcement['success']:
         details = announcement['data']
@@ -355,26 +366,26 @@ def get_announcement_details(announcement_id):
 def comprehensive_analysis_workflow():
     from app import CSE_API
     from tools import CSE_InvestmentAnalyzer, CSE_ReportDownloader, DividendTracker
-    
+
     # Step 1: Get market overview
     cse = CSE_API()
     market_status = cse.get_market_status()
     top_gainers = cse.get_top_gainers()
-    
+
     # Step 2: Perform investment analysis
     analyzer = CSE_InvestmentAnalyzer()
     analyzer.analyze_companies(limit=20)
     analyzer.save_analysis()
-    
+
     # Step 3: Track dividends for top performers
     tracker = DividendTracker()
     top_symbols = [stock['symbol'] for stock in top_gainers['data'][:10]]
     tracker.track_dividends_for_symbols(top_symbols)
-    
+
     # Step 4: Download financial reports for analysis
     downloader = CSE_ReportDownloader()
     downloader.download_reports_by_time_range("2024-01-01", "2025-08-26")
-    
+
     print("✅ Comprehensive analysis completed!")
 ```
 
@@ -564,11 +575,13 @@ The API doesn't specify rate limits, but it's recommended to:
 ## 🛠️ Dependencies
 
 ### Core API Client
+
 ```bash
 pip install requests
 ```
 
 ### Tools Package (Optional)
+
 For using the analysis and utility tools:
 
 ```bash
@@ -576,6 +589,7 @@ pip install pandas numpy openpyxl
 ```
 
 ### Complete Installation
+
 ```bash
 # Install all dependencies at once
 pip install requests pandas numpy openpyxl
@@ -585,6 +599,7 @@ pip install -r requirements.txt
 ```
 
 ### Package Versions
+
 - **requests**: For API communication
 - **pandas**: For data manipulation and analysis
 - **numpy**: For numerical computations
@@ -596,7 +611,7 @@ pip install -r requirements.txt
 2. **Chart Data**: May return HTTP 400 for some symbols
 3. **Market Hours**: Some data may be limited during market closed hours
 4. **Response Format**: All responses are in JSON format
-5. **New Features**: 
+5. **New Features**:
    - Filtered announcement endpoints support date ranges and company filtering
    - Tools package provides advanced analysis capabilities
    - Announcement categories can be fetched and used for filtering
@@ -632,6 +647,7 @@ python test_abans_download.py
 ```
 
 ### Test Results Summary
+
 - ✅ All API endpoints functional
 - ✅ Tools package migration successful
 - ✅ Financial report downloads working (tested with Abans Electrical)
