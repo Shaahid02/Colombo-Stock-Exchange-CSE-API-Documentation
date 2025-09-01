@@ -48,22 +48,10 @@
     "securityId": 1121
   },
   {
-    "id": 2035,
-    "name": "AGSTAR PLC",
-    "symbol": "AGST.X0000",
-    "securityId": 1121
-  },
-  {
     "id": 144,
     "name": "AITKEN SPENCE HOTEL HOLDINGS PLC",
     "symbol": "AHUN.N0000",
     "securityId": 521
-  },
-  {
-    "id": 2789,
-    "name": "AITKEN SPENCE PLANTATION MANAGEMENTS PLC",
-    "symbol": "ASPM.N0000",
-    "securityId": 1267
   },
   {
     "id": 343,
@@ -120,28 +108,10 @@
     "securityId": 782
   },
   {
-    "id": 1800,
-    "name": "AMW CAPITAL LEASING AND FINANCE PLC",
-    "symbol": "AMCL.N0000",
-    "securityId": 1065
-  },
-  {
-    "id": 2846,
-    "name": "ANILANA HOTELS AND PROPERTIES PLC",
-    "symbol": "ALHP.N0000",
-    "securityId": 1283
-  },
-  {
     "id": 3244,
     "name": "ARPICO INSURANCE PLC",
     "symbol": "AINS.N0000",
     "securityId": 1405
-  },
-  {
-    "id": 5145,
-    "name": "ASIA ASSET FINANCE PLC",
-    "symbol": "AAF.P0000",
-    "securityId": 1108
   },
   {
     "id": 2025,
@@ -220,24 +190,6 @@
     "name": "BERUWALA RESORTS PLC",
     "symbol": "BERU.N0000",
     "securityId": 1201
-  },
-  {
-    "id": 1802,
-    "name": "BIMPUTH LANKA INVESTMENTS PLC",
-    "symbol": "BLI.N0000",
-    "securityId": 1067
-  },
-  {
-    "id": 301,
-    "name": "BLUE DIAMONDS JEWELLERY WORLDWIDE PLC",
-    "symbol": "BLUE.X0000",
-    "securityId": 663
-  },
-  {
-    "id": 135,
-    "name": "BLUE DIAMONDS JEWELLERY WORLDWIDE PLC",
-    "symbol": "BLUE.N0000",
-    "securityId": 663
   },
   {
     "id": 189,
@@ -366,15 +318,15 @@
     "securityId": 665
   },
   {
-    "id": 981,
-    "name": "CEYLINCO HOLDINGS PLC",
-    "symbol": "CINS.X0000",
-    "securityId": 367
-  },
-  {
     "id": 91,
     "name": "CEYLINCO HOLDINGS PLC",
     "symbol": "CINS.N0000",
+    "securityId": 367
+  },
+  {
+    "id": 981,
+    "name": "CEYLINCO HOLDINGS PLC",
+    "symbol": "CINS.X0000",
     "securityId": 367
   },
   {
@@ -402,15 +354,15 @@
     "securityId": 607
   },
   {
-    "id": 453,
-    "name": "CEYLON HOSPITALS PLC",
-    "symbol": "CHL.X0000",
-    "securityId": 514
-  },
-  {
     "id": 264,
     "name": "CEYLON HOSPITALS PLC",
     "symbol": "CHL.N0000",
+    "securityId": 514
+  },
+  {
+    "id": 453,
+    "name": "CEYLON HOSPITALS PLC",
+    "symbol": "CHL.X0000",
     "securityId": 514
   },
   {
@@ -462,22 +414,16 @@
     "securityId": 2236
   },
   {
-    "id": 328,
-    "name": "C I C HOLDINGS PLC",
-    "symbol": "CIC.X0000",
-    "securityId": 493
-  },
-  {
     "id": 162,
     "name": "C I C HOLDINGS PLC",
     "symbol": "CIC.N0000",
     "securityId": 493
   },
   {
-    "id": 1630,
-    "name": "CITIZENS DEVELOPMENT BUSINESS FINANCE PLC",
-    "symbol": "CDB.N0000",
-    "securityId": 981
+    "id": 328,
+    "name": "C I C HOLDINGS PLC",
+    "symbol": "CIC.X0000",
+    "securityId": 493
   },
   {
     "id": 1858,
@@ -486,16 +432,16 @@
     "securityId": 981
   },
   {
+    "id": 1630,
+    "name": "CITIZENS DEVELOPMENT BUSINESS FINANCE PLC",
+    "symbol": "CDB.N0000",
+    "securityId": 981
+  },
+  {
     "id": 101,
     "name": "CITRUS LEISURE PLC",
     "symbol": "REEF.N0000",
     "securityId": 568
-  },
-  {
-    "id": 311,
-    "name": "CITY HOUSING & REAL ESTATE CO. PLC",
-    "symbol": "CHOU.N0000",
-    "securityId": 616
   },
   {
     "id": 5353,
@@ -810,21 +756,9 @@
     "securityId": 1992
   },
   {
-    "id": 6216,
-    "name": "HNB FINANCE PLC",
-    "symbol": "HNBF.R0000",
-    "securityId": 1992
-  },
-  {
     "id": 4681,
     "name": "HNB FINANCE PLC",
     "symbol": "HNBF.X0000",
-    "securityId": 1992
-  },
-  {
-    "id": 6217,
-    "name": "HNB FINANCE PLC",
-    "symbol": "HNBF.R0001",
     "securityId": 1992
   },
   {
@@ -960,12 +894,6 @@
     "securityId": 712
   },
   {
-    "id": 7,
-    "name": "KELSEY DEVELOPMENTS PLC",
-    "symbol": "KDL.N0000",
-    "securityId": 625
-  },
-  {
     "id": 241,
     "name": "KERNER HAUS GLOBAL SOLUTIONS PLC",
     "symbol": "CPRT.N0000",
@@ -978,22 +906,10 @@
     "securityId": 713
   },
   {
-    "id": 389,
-    "name": "KOTMALE HOLDINGS PLC",
-    "symbol": "LAMB.N0000",
-    "securityId": 484
-  },
-  {
     "id": 322,
     "name": "LB FINANCE PLC",
     "symbol": "LFIN.N0000",
     "securityId": 379
-  },
-  {
-    "id": 137,
-    "name": "LAKE HOUSE PRINTERS & PUBLISHERS PLC",
-    "symbol": "LPRT.N0000",
-    "securityId": 741
   },
   {
     "id": 18,
@@ -1098,12 +1014,6 @@
     "securityId": 498
   },
   {
-    "id": 198,
-    "name": "LEE HEDGES PLC",
-    "symbol": "SHAW.N0000",
-    "securityId": 632
-  },
-  {
     "id": 415,
     "name": "LION BREWERY (CEYLON) PLC",
     "symbol": "LION.N0000",
@@ -1170,15 +1080,15 @@
     "securityId": 563
   },
   {
-    "id": 439,
-    "name": "MALWATTE VALLEY PLANTATION PLC",
-    "symbol": "MAL.N0000",
-    "securityId": 722
-  },
-  {
     "id": 1595,
     "name": "MALWATTE VALLEY PLANTATION PLC",
     "symbol": "MAL.X0000",
+    "securityId": 722
+  },
+  {
+    "id": 439,
+    "name": "MALWATTE VALLEY PLANTATION PLC",
+    "symbol": "MAL.N0000",
     "securityId": 722
   },
   {
@@ -1198,12 +1108,6 @@
     "name": "MELSTACORP PLC",
     "symbol": "MELS.N0000",
     "securityId": 1507
-  },
-  {
-    "id": 1799,
-    "name": "MERCANTILE INVESTMENTS AND FINANCE PLC",
-    "symbol": "MERC.N0000",
-    "securityId": 1064
   },
   {
     "id": 209,
@@ -1236,22 +1140,10 @@
     "securityId": 2672
   },
   {
-    "id": 1448,
-    "name": "NAMAL ACUITY VALUE FUND",
-    "symbol": "NAVF.U0000",
-    "securityId": 882
-  },
-  {
     "id": 291,
     "name": "NAMUNUKULA PLANTATIONS PLC",
     "symbol": "NAMU.N0000",
     "securityId": 725
-  },
-  {
-    "id": 218,
-    "name": "NATION LANKA FINANCE PLC",
-    "symbol": "CSF.N0000",
-    "securityId": 368
   },
   {
     "id": 77,
@@ -1318,12 +1210,6 @@
     "name": "PANASIAN POWER PLC",
     "symbol": "PAP.N0000",
     "securityId": 1040
-  },
-  {
-    "id": 487,
-    "name": "PARAGON CEYLON PLC",
-    "symbol": "PARA.N0000",
-    "securityId": 743
   },
   {
     "id": 504,
@@ -1494,28 +1380,10 @@
     "securityId": 696
   },
   {
-    "id": 3448,
-    "name": "SENFIN SECURITIES LIMITED",
-    "symbol": "COF.U0000",
-    "securityId": 1464
-  },
-  {
     "id": 1789,
     "name": "SENKADAGALA FINANCE COMPANY PLC",
     "symbol": "SFCL.N0000",
     "securityId": 441
-  },
-  {
-    "id": 485,
-    "name": "SERENDIB ENGINEERING GROUP PLC",
-    "symbol": "IDL.N0000",
-    "securityId": 624
-  },
-  {
-    "id": 246,
-    "name": "SERENDIB HOTELS PLC",
-    "symbol": "SHOT.N0000",
-    "securityId": 601
   },
   {
     "id": 432,
@@ -1524,10 +1392,10 @@
     "securityId": 601
   },
   {
-    "id": 243,
-    "name": "SERENDIB LAND PLC",
-    "symbol": "SLND.N0000",
-    "securityId": 630
+    "id": 246,
+    "name": "SERENDIB HOTELS PLC",
+    "symbol": "SHOT.N0000",
+    "securityId": 601
   },
   {
     "id": 213,
@@ -1602,12 +1470,6 @@
     "securityId": 863
   },
   {
-    "id": 6111,
-    "name": "SOFTLOGIC HOLDINGS PLC",
-    "symbol": "SHL.W0000",
-    "securityId": 1075
-  },
-  {
     "id": 1849,
     "name": "SOFTLOGIC HOLDINGS PLC",
     "symbol": "SHL.N0000",
@@ -1636,12 +1498,6 @@
     "name": "SUNSHINE HOLDINGS PLC",
     "symbol": "SUN.N0000",
     "securityId": 510
-  },
-  {
-    "id": 313,
-    "name": "SWADESHI INDUSTRIAL WORKS  PLC",
-    "symbol": "SWAD.N0000",
-    "securityId": 687
   },
   {
     "id": 119,
@@ -1746,15 +1602,15 @@
     "securityId": 491
   },
   {
-    "id": 15,
-    "name": "TOKYO CEMENT COMPANY (LANKA) PLC",
-    "symbol": "TKYO.X0000",
-    "securityId": 688
-  },
-  {
     "id": 411,
     "name": "TOKYO CEMENT COMPANY (LANKA) PLC",
     "symbol": "TKYO.N0000",
+    "securityId": 688
+  },
+  {
+    "id": 15,
+    "name": "TOKYO CEMENT COMPANY (LANKA) PLC",
+    "symbol": "TKYO.X0000",
     "securityId": 688
   },
   {

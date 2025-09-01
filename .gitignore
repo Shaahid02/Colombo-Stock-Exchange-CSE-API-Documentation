@@ -7,3 +7,7 @@ training_data/*
 reports/*
 
 tests/__pycache__/*
+
+analysis/*
+
+company_training_data/*

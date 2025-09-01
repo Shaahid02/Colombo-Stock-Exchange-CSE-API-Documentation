@@ -166,11 +166,11 @@ class CSE_API:
                 print(f"  Failed to fetch companies for '{letter}': {response['error']}")
         
         print(f"\nCompleted! Total companies found: {len(all_companies)}")
-        
-        active_companies = [ c for c in all_companies if c.get('price', 0) > 0 ]
-        
-        print(f"Active companies (price > 0): {len(active_companies)}")
-        
+
+        active_companies = [ c for c in all_companies if c.get('lastTradedTime') is not None ]
+
+        print(f"Active companies (last traded time > 0): {len(active_companies)}")
+
         if failed_requests:
             print(f"Failed requests for letters: {[req['letter'] for req in failed_requests]}")
         

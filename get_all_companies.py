@@ -123,14 +123,14 @@ def main():
     analyze_companies_data(active_companies_data)
     
     # Ask if user wants to save to files
-    save_files = input(f"\n💾 Save {len(companies_data)} companies to JSON/CSV files? (Y/n): ").strip().lower()
+    save_files = input(f"\n💾 Save {len(active_companies_data)} companies to JSON/CSV files? (Y/n): ").strip().lower()
     if save_files not in ['n', 'no']:
-        json_file, csv_file = save_companies_to_files(companies_data)
+        json_file, csv_file = save_companies_to_files(active_companies_data)
         print(f"\n✅ Files saved successfully!")
         print(f"   📄 JSON: {json_file}")
         print(f"   📊 CSV:  {csv_file}")
     
-    return companies_data
+    return active_companies_data
 
 def test_single_alphabet():
     """Test getting companies for a single alphabet"""
